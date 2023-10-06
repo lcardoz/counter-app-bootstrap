@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 
-const Counter = ({value}) => { 
+const Counter = ({value, id}) => { 
 
   const [data, setData] = useState({
     value: value,
@@ -31,6 +31,7 @@ const Counter = ({value}) => {
   return (
     <>
       <br />
+      <h4>Counter #{id}</h4>
       <span className={getBadgeClasses()}>{formatValue()}</span>
       <button 
         className="btn btn-secondary btn-sm" 

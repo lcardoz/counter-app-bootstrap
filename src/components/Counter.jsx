@@ -1,9 +1,9 @@
 import { React, useState } from 'react';
 
-const Counter = () => { 
+const Counter = ({value}) => { 
 
   const [data, setData] = useState({
-    count: 0,
+    count: value,
     // imageUrl: 'https://picsum.photos/200',
     // tags: ['tag1', 'tag2', 'tag3'],
   });

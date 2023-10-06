@@ -3,23 +3,23 @@ import { React, useState } from 'react';
 const Counter = ({value}) => { 
 
   const [data, setData] = useState({
-    count: value,
+    value: value,
     // imageUrl: 'https://picsum.photos/200',
     // tags: ['tag1', 'tag2', 'tag3'],
   });
 
-  const formatCount = () => data.count === 0 ? 'Zero' : data.count;
+  const formatValue = () => data.value === 0 ? 'Zero' : data.value;
 
   const handleIncrement = () => {
     setData({
       ...data,
-      count: data.count + 1
+      value: data.value + 1
     })
   }
 
   const getBadgeClasses = () => {
     let classes = "badge m-2 badge-";
-    classes += (data.count === 0 ? "warning" : "primary");
+    classes += (data.value === 0 ? "warning" : "primary");
     return classes;
   }
 
@@ -31,7 +31,7 @@ const Counter = ({value}) => {
   return (
     <>
       <br />
-      <span className={getBadgeClasses()}>{formatCount()}</span>
+      <span className={getBadgeClasses()}>{formatValue()}</span>
       <button 
         className="btn btn-secondary btn-sm" 
         onClick={handleIncrement}

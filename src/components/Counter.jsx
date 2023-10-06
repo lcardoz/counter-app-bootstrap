@@ -4,8 +4,8 @@ const Counter = () => {
 
   const [data, setData] = useState({
     count: 0,
-    imageUrl: 'https://picsum.photos/200',
-    tags: ['tag1', 'tag2', 'tag3'],
+    // imageUrl: 'https://picsum.photos/200',
+    // tags: ['tag1', 'tag2', 'tag3'],
   });
 
   const formatCount = () => data.count === 0 ? 'Zero' : data.count;
@@ -23,14 +23,13 @@ const Counter = () => {
     return classes;
   }
 
-  const renderTags = () => {
-    if (data.tags.length === 0) return <p>There are no tags!</p>;
-    return <ul>{data.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
-  }
+  // const renderTags = () => {
+  //   if (data.tags.length === 0) return <p>There are no tags!</p>;
+  //   return <ul>{data.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
+  // }
 
   return (
     <>
-      <img src={data.imageUrl} alt="scenery" />
       <br />
       <span className={getBadgeClasses()}>{formatCount()}</span>
       <button 
@@ -39,8 +38,8 @@ const Counter = () => {
       >
           Increment
       </button>
-      {data.tags.length === 0 && "Please create a new tag!"}
-      {renderTags()}
+      {/* {data.tags.length === 0 && "Please create a new tag!"}
+      {renderTags()} */}
     </>
   )
 }

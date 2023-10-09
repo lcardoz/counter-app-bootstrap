@@ -1,6 +1,8 @@
 import { React, useState } from 'react';
 
-const Counter = ({value, id}) => { 
+const Counter = ({counter, onDelete}) => { 
+  
+  const { id, value } = counter;
 
   const [data, setData] = useState({
     value: value,
@@ -37,7 +39,13 @@ const Counter = ({value, id}) => {
         className="btn btn-secondary btn-sm" 
         onClick={handleIncrement}
       >
-          Increment
+        Increment
+      </button>
+      <button 
+        onClick={() => onDelete(id)} 
+        className="btn btn-danger btn-sm m-2"
+      >
+        Delete
       </button>
       {/* {data.tags.length === 0 && "Please create a new tag!"}
       {renderTags()} */}

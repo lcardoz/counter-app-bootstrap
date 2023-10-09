@@ -12,10 +12,15 @@ const Counters = () => {
     ]
   })
 
+  const handleDelete = (counterId) => {
+    const counters = data.counters.filter(c => c.id !== counterId)
+    setData({counters})
+  }
+
   return (
     <div>
       {data.counters.map(counter => 
-        <Counter key={counter.id} value={counter.value} id={counter.id} />)}
+        <Counter key={counter.id} counter={counter} onDelete={handleDelete}/>)}
     </div>
   )
 }

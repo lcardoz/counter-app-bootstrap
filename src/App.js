@@ -1,13 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Navbar from './components/Navbar';
 import Counters from './components/Counters';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Counters />
-    </div>
-  );
+    <>
+      <Navbar />
+      <main className="container">
+        <Counters />
+      </main>
+    </>
+  )
 }
 
 export default App;

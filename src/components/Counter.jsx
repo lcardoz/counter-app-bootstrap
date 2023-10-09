@@ -1,6 +1,6 @@
 import { React } from 'react';
 
-const Counter = ({ counter, onDelete, onIncrement }) => { 
+const Counter = ({ counter, onDelete, onIncrement, onDecrement }) => { 
 
   const { id, value } = counter;
 
@@ -18,25 +18,34 @@ const Counter = ({ counter, onDelete, onIncrement }) => {
   // }
 
   return (
-    <>
-      <br />
-      <h4>Counter #{id}</h4>
-      <span className={getBadgeClasses()}>{formatValue()}</span>
-      <button 
-        onClick={() => onIncrement(counter)}
-        className="btn btn-secondary btn-sm" 
-      >
-        Increment
-      </button>
-      <button 
-        onClick={() => onDelete(id)} 
-        className="btn btn-danger btn-sm m-2"
-      >
-        Delete
-      </button>
+    <div className="row">
+      <div className='col-1'>
+        <span className={getBadgeClasses()}>{formatValue()}</span>
+      </div>
+      <div className='col'>
+        <button 
+          onClick={() => onIncrement(counter)}
+          className="btn btn-secondary btn-sm" 
+          >
+          +
+        </button>
+        <button 
+          onClick={() => onDecrement(counter)}
+          className="btn btn-secondary btn-sm m-2" 
+          disabled={counter.value === 0 ? 'disabled' : ''}
+          >
+          -
+        </button>
+        <button 
+          onClick={() => onDelete(id)} 
+          className="btn btn-danger btn-sm"
+        >
+          X
+        </button>
+      </div>
       {/* {data.tags.length === 0 && "Please create a new tag!"}
       {renderTags()} */}
-    </>
+    </div>
   )
 }
 

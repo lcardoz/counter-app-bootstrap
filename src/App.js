@@ -30,6 +30,14 @@ function App() {
     setData({counters});
   }
 
+  const handleDecrement = (counter) => {
+    const counters = [...data.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = {...counter};
+    counters[index].value--;
+    setData({counters});
+  }
+
   const handleDelete = (counterId) => {
     const counters = data.counters.filter(c => c.id !== counterId)
     setData({counters})
@@ -45,6 +53,7 @@ function App() {
           counters={data.counters} 
           onReset={handleReset} 
           onIncrement={handleIncrement} 
+          onDecrement={handleDecrement}
           onDelete={handleDelete} 
         />
       </main>

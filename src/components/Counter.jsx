@@ -1,27 +1,14 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 
-const Counter = ({counter, onDelete}) => { 
-  
+const Counter = ({ counter, onDelete, onIncrement }) => { 
+
   const { id, value } = counter;
 
-  const [data, setData] = useState({
-    value: value,
-    // imageUrl: 'https://picsum.photos/200',
-    // tags: ['tag1', 'tag2', 'tag3'],
-  });
-
-  const formatValue = () => data.value === 0 ? 'Zero' : data.value;
-
-  const handleIncrement = () => {
-    setData({
-      ...data,
-      value: data.value + 1
-    })
-  }
+  const formatValue = () => value === 0 ? 'Zero' : value;
 
   const getBadgeClasses = () => {
     let classes = "badge m-2 badge-";
-    classes += (data.value === 0 ? "warning" : "primary");
+    classes += (value === 0 ? "warning" : "primary");
     return classes;
   }
 
@@ -36,8 +23,8 @@ const Counter = ({counter, onDelete}) => {
       <h4>Counter #{id}</h4>
       <span className={getBadgeClasses()}>{formatValue()}</span>
       <button 
+        onClick={() => onIncrement(counter)}
         className="btn btn-secondary btn-sm" 
-        onClick={handleIncrement}
       >
         Increment
       </button>
